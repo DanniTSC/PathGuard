@@ -1,0 +1,13 @@
+
+fastapi
+uvicorn
+pydantic
+prefect
+pandas
+pyarrow
+streamlit
+python-dotenv
+requests
+geopandas==0.14.4
+shapely
+folium
