@@ -1,10 +1,10 @@
 
 # Placeholder for future DVC pipeline
-# stages:
-#   etl:
-#     cmd: python etl/flow.py
-#     deps:
-#       - etl/flow.py
-#       - etl/data/segments.geojson
-#     outs:
-#       - etl/data/segments_scored.parquet
+stages:
+  etl:
+    cmd: python etl/flow.py
+    deps:
+      - etl/flow.py
+      - etl/data/segments.geojson
+    outs:
+      - etl/data/segments_scored.parquet

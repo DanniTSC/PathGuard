@@ -1,0 +1,104 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+*.so
+
+# Virtual env
+.venv/
+venv/
+ENV/
+.python-version
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Testing / coverage
+.pytest_cache/
+.tox/
+.nox/
+.coverage*
+htmlcov/
+coverage.xml
+
+# Type check / linters
+.mypy_cache/
+.pytype/
+.ruff_cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs / temp
+*.log
+logs/
+tmp/
+.cache/
+
+# ---------- App / Framework ----------
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/state.json
+
+# Prefect
+.prefect/
+prefect.log
+
+# DVC
+.dvc/cache/
+.dvc/tmp/
+*.dvc.lock
+# (păstrezi dvc.yaml & .dvc/config implicit)
+
+# ---------- Env / Secrets ----------
+.env
+.env.*
+*.env
+*.key
+*.pem
+
+# ---------- Data (keep sample input, ignore generated) ----------
+# Ignoră tot ce e în etl/data, DAR păstrează fișierul de exemplu
+etl/data/*
+!etl/data/segments.geojson
+
+# Formate de date grele (în caz că apar în repo)
+*.parquet
+*.feather
+*.arrow
+*.orc
+*.sqlite
+*.sqlite3
+*.db
+*.geojson
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.cpg
+
+# ---------- Editors / OS ----------
+# VSCode: ignoră tot, dar păstrează setările utile
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains / altele
+.idea/
+*.iml
+
+# OS specific
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---------- Docker (dacă vei adăuga) ----------
+docker-compose.override.yml
+.env.docker

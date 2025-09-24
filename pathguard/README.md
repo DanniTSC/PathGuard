@@ -33,8 +33,17 @@ python etl/flow.py
 ```
 
 ### 3) Run the API
+From the inner `pathguard` package dir (so `app` is importable):
 ```bash
+cd pathguard
 uvicorn app.api:app --reload
+```
+Or from project root:
+```bash
+# Option A: set app dir
+uvicorn --app-dir pathguard app.api:app --reload
+# Option B: use fully-qualified module
+uvicorn pathguard.app.api:app --reload
 ```
 
 ### 4) Run the dashboard (in a second terminal)
@@ -49,6 +58,13 @@ Create a `.env` at the project root if you want to customize:
 ```
 API_BASE=http://127.0.0.1:8000
 USE_HF=false
+```
+
+## Troubleshooting
+- Prefect on Windows may require `cffi`/`cryptography`. If you see `_cffi_backend` errors, either install build tools or temporarily disable Prefect:
+```bash
+set PREFECT_DISABLE=1   # Windows PowerShell: $env:PREFECT_DISABLE = "1"
+python etl/flow.py
 ```
 
 ## Notes

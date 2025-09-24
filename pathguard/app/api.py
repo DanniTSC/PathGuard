@@ -6,8 +6,18 @@ import os
 
 from .explain import explain_route
 from .routing import toy_route
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="PathGuard API", version="0.1.0")
+
+# Allow local dev frontends
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class Segment(BaseModel):
@@ -22,6 +32,10 @@ class RouteResponse(BaseModel):
     safety_score: float
     explanation: str
 
+
+@app.get("/")
+def root():
+    return {"name": "PathGuard API", "docs": "/docs"}
 
 @app.get("/health")
 def health():
